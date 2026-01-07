@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SmartQb FAQ — Common questions</title>
+  <meta name="description" content="SmartQb frequently asked questions: connectors, scheduling, security, emails, and how SmartQb works." />
+  <meta name="theme-color" content="#eaf2ff" />
+
+  <style>
+    /* --- Shared theme (same as your landing page) --- */
+    :root {
+      --bg: #f4f8ff;
+      --bg2: #eaf2ff;
+      --card: #ffffff;
+      --card2: #f8fbff;
+      --text: #0f172a;
+      --muted: #475569;
+      --muted2: #64748b;
+      --line: #dbe5f5;
+
+      --brand: #2563eb;
+      --brand2: #1d4ed8;
+
+      --shadow: 0 18px 50px rgba(15, 23, 42, 0.12);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(900px 420px at 12% 10%, rgba(37, 99, 235, 0.12), transparent 60%),
+        radial-gradient(900px 520px at 88% 18%, rgba(56, 189, 248, 0.18), transparent 60%),
+        radial-gradient(700px 420px at 70% 90%, rgba(125, 211, 252, 0.14), transparent 62%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial;
+      letter-spacing: 0.2px;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 22px 18px 64px; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.65));
+      border-bottom: 1px solid var(--line);
+    }
+
+    .navin {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 10px 18px;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+
+    .logo-img {
+      height: 44px;
+      width: auto;
+      display: block;
+      transform-origin: left center;
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .navlinks a {
+      color: var(--muted);
+      padding: 8px 12px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      font-weight: 500;
+    }
+
+    .navlinks a:hover {
+      color: var(--text);
+      background: rgba(37, 99, 235, 0.08);
+      border-color: rgba(37, 99, 235, 0.18);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      color: var(--text);
+      font-weight: 600;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+      cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .btn:hover { background: #f1f5ff; }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      border-color: rgba(37, 99, 235, 0.45);
+      color: #ffffff;
+      box-shadow: 0 16px 40px rgba(37, 99, 235, 0.28);
+    }
+
+    .btn.primary:hover {
+      background: linear-gradient(135deg, #2b6cff, #1b49d6);
+    }
+
+    .card {
+      background: linear-gradient(180deg, #ffffff, #f8fbff);
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      margin: 18px 0 6px;
+      font-size: clamp(28px, 3vw, 40px);
+      line-height: 1.15;
+      letter-spacing: -0.4px;
+    }
+
+    .sub { color: var(--muted); margin: 0 0 18px; }
+
+    .content {
+      padding: 22px;
+    }
+
+    /* FAQ styling */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    details.faq {
+      padding: 14px 14px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    details.faq[open] {
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    details.faq summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    details.faq summary::-webkit-details-marker { display: none; }
+
+    .chev {
+      flex: 0 0 auto;
+      width: 26px;
+      height: 26px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(37, 99, 235, 0.18);
+      background: rgba(37, 99, 235, 0.08);
+      color: var(--muted);
+      transition: transform .15s ease;
+      user-select: none;
+    }
+
+    details[open] .chev { transform: rotate(180deg); }
+
+    .answer {
+      margin-top: 10px;
+      color: var(--muted);
+    }
+
+    .answer p { margin: 0 0 10px; }
+    .answer ul { margin: 0; padding-left: 18px; }
+    .answer li { margin: 6px 0; }
+
+    .callout {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(37, 99, 235, 0.18);
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.10), rgba(56, 189, 248, 0.10));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
+
+    @media (max-width: 720px) {
+      .navlinks { gap: 10px; }
+      .navlinks a { padding: 7px 10px; }
+      .btn { padding: 10px 12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="navin">
+      <a class="brand" href="index.html#top" aria-label="SmartQb home">
+        <img class="logo-img" src="SmartQbLogo.png" alt="SmartQb" />
+      </a>
+
+      <div class="navlinks">
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#connectors">Connectors</a>
+        <a href="index.html#examples">Example queries</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="faq.html" aria-current="page" style="background: rgba(37,99,235,.08); border-color: rgba(37,99,235,.18);">FAQ</a>
+
+        <!-- TODO: Replace href with your app URL when ready -->
+        <a class="btn primary" href="https://app.smartqb.co">Start 14-Day Free Trial</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <main class="card content">
+      <h1>FAQ</h1>
+      <p class="sub">Answers to the most common questions about SmartQb.</p>
+
+      <div class="faq-grid">
+        <details class="faq">
+          <summary>
+            What is SmartQb?
+            <span class="chev">▾</span>
+          </summary>
+          <div class="answer">
+            <p>
+              <strong>SmartQb (Smart Query Builder)</strong> lets you ask questions in plain English about your finance and CRM data.
+              It generates clear, executive-ready reports and delivers them by email — ad-hoc or on a schedule.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary>
+            Which systems can I connect?
+            <span class="chev">▾</span>
+          </summary>
+          <div class="answer">
+            <p>SmartQb supports:</p>
+            <ul>
+              <li>Xero</li>
+              <li>QuickBooks</li>
+              <li>Salesforce</li>
+              <li>Zoho CRM</li>
+            </ul>
+            <p>More connectors can be added over time.</p>
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary>
+            What kind of questions can I ask?
+            <span class="chev">▾</span>
+          </summary>
+          <div class="answer">
+            <p>Examples include:</p>
+            <ul>
+              <li>“Can I pay all my suppliers with my current cash?”</li>
+              <li>“Show me the profit and loss for last month.”</li>
+              <li>“How profitable is this month compared to the same month last year?”</li>
+              <li>“Which accounts haven’t been contacted recently?”</li>
+              <li>“What activities happened on AccountX in the last 90 days?”</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary>
+            Can I schedule reports to arrive automatically?
+            <span class="chev">▾</span>
+          </summary>
+          <div class="answer">
+            <p>
+              Yes. You can schedule reports to arrive in your inbox <strong>daily, weekly, monthly, quarterly, or yearly</strong>.
+              You can also run any report ad-hoc at any time.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary>
+            How are reports delivered?
+            <span class="chev">▾</span>
+          </summary>
+          <div class="answer">
+            <p>
+              Reports are delivered by email in a clean format with summaries and supporting detail.
+              (If you later add in-app viewing, you can link to the same report from the email.)
+            </p>
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary>
+            Is SmartQb secure?
+            <span class="chev">▾</span>
+          </summary>
+          <div class="answer">
+            <p>
+              SmartQb connects to your systems using their official authentication methods (OAuth where available).
+              Access is limited to the permissions granted, and you can disconnect at any time.
+            </p>
+            <p>
+              If you want, I can add a dedicated <strong>Security</strong> section outlining token storage,
+              encryption, least-privilege, and audit logging in more detail.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary>
+            What does the 14-day trial include?
+            <span class="chev">▾</span>
+          </summary>
+          <div class="answer">
+            <p>
+              The trial is intended to let you connect a system, ask real questions, and set up scheduled reports to see the value quickly.
+              You can refine the questions and report templates as you go.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary>
+            Do I need to know SQL or build reports manually?
+            <span class="chev">▾</span>
+          </summary>
+          <div class="answer">
+            <p>
+              No. SmartQb is designed for natural-language questions — no SQL, no spreadsheets, no dashboard-building.
+              Ask → receive a report → schedule it if it’s useful.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout">
+        <div>
+          <strong>Still have a question?</strong><br />
+          <span style="color: var(--muted);">Email us and we’ll help you set up the best first report.</span>
+        </div>
+        <a class="btn" href="mailto:hello@smartqb.co?subject=SmartQb%20question">Email support</a>
+      </div>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> SmartQb. All rights reserved.</div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="index.html#top" style="color:var(--muted);">Home</a>
+        <a href="faq.html" style="color:var(--muted);">FAQ</a>
+        <a href="#" style="color:var(--muted);">Privacy</a>
+        <a href="#" style="color:var(--muted);">Terms</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
