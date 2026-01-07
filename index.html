@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marcus' Site</title>
+  <meta name="description" content="A simple GitHub Pages site." />
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 0; padding: 0; }
+    header, main, footer { max-width: 900px; margin: 0 auto; padding: 24px; }
+    header { border-bottom: 1px solid #ddd; }
+    nav a { margin-right: 12px; }
+    .card { border: 1px solid #ddd; border-radius: 12px; padding: 16px; margin-top: 16px; }
+    footer { border-top: 1px solid #ddd; color: #555; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2>Hello 👋</h2>
+      <p>This is a static site hosted on GitHub Pages.</p>
+    </div>
+  </main>
+
+  <footer>
+    <small>© <span id="y"></span> Marcus Lens</small>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
