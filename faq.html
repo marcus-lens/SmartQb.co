@@ -351,12 +351,78 @@
           </summary>
           <div class="answer">
             <p>
-              SmartQb connects to your systems using their official authentication methods (OAuth where available).
+              SmartQb connects to your systems using their official authentication methods (OAuth2).
               Access is limited to the permissions granted, and you can disconnect at any time.
             </p>
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary>
+            How is SmartQb using our connected data?
+            <span class="chev">▾</span>
+          </summary>
+          <div class="answer">
             <p>
-              If you want, I can add a dedicated <strong>Security</strong> section outlining token storage,
-              encryption, least-privilege, and audit logging in more detail.
+              SmartQb connects to your systems when queries run to fetch the latest data. It talks to your systems
+              via their published APIs. The data retrieved is then stored in our secure Microsoft Azure Storage where
+              it is queried on demand. The data is available only to your queries, it is not used for any other purpose.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary>
+            Is my data being used or shared with any 3rd party including AI?
+            <span class="chev">▾</span>
+          </summary>
+          <div class="answer">
+            <p>
+              No. Your data is yours, it is not used for any purpose other than to generate reports from your queries.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary>
+            Is AI looking at my data?
+            <span class="chev">▾</span>
+          </summary>
+          <div class="answer">
+            <p>
+              No. We use AI to build the query Approach. Once you're happy with the approach and save the Query, AI is again used
+              to build runtime code to run against your data. It NEVER looks at your data, nor should it.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary>
+            Will my reports run/arrive via email if OpenAI is down?
+            <span class="chev">▾</span>
+          </summary>
+          <div class="answer">
+            <p>
+              Yes. But you won't be able to generate new queries until OpenAI is back up and running. This is very rare and unlikely
+              to be an extended outage.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary>
+            How long after I run a query will I receive an email?
+            <span class="chev">▾</span>
+          </summary>
+          <div class="answer">
+            <p>
+              This can depend on the size of your business data within the connected system. We initially extract 2 years past worth 
+              of data from your system, this is usually adequate for queries you want to run today. If for example, you have half a million 
+              invoices, our system might take a few minutes to fetch these, then the query is executed against the data and the email sent. This
+              may take up to 5-10 minutes.
+
+              Once we have the 2 years of data, we only fetch changes from your system so emails are usually snappy and received in your inbox
+              within a minute or two. 
             </p>
           </div>
         </details>
@@ -393,7 +459,7 @@
           <strong>Still have a question?</strong><br />
           <span style="color: var(--muted);">Email us and we’ll help you set up the best first report.</span>
         </div>
-        <a class="btn" href="mailto:hello@smartqb.co?subject=SmartQb%20question">Email support</a>
+        <a class="btn" href="mailto:support@smartqb.co?subject=SmartQb%20question">Email support</a>
       </div>
     </main>
 
