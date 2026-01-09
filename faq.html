@@ -42,7 +42,7 @@
           </summary>
           <div class="answer">
             <p>
-              <strong>SmartQb (Smart Query Builder)</strong> lets you ask questions in plain English about your finance and CRM data.
+              <strong>SmartQb (Smart Query Builder)</strong> lets you ask questions in plain English about your finance, POS and CRM data.
               It generates clear, executive-ready reports and delivers them by email — ad-hoc or on a schedule.
             </p>
           </div>
@@ -56,9 +56,10 @@
           <div class="answer">
             <p>SmartQb supports:</p>
             <ul>
-              <li>Xero</li>
+              <li>Lightspeed Retail (X-Series)</li>
               <li>QuickBooks</li>
               <li>Salesforce</li>
+              <li>Xero</li>
               <li>Zoho CRM</li>
             </ul>
             <p>More connectors can be added over time.</p>
@@ -80,7 +81,7 @@
 
         <details class="faq">
           <summary>
-            What kind of questions can I ask?
+            What kind of finance questions can I ask?
             <span class="chev">▾</span>
           </summary>
           <div class="answer">
@@ -129,12 +130,15 @@
           </summary>
           <div class="answer">
             <p>
-              SmartQb connects to your systems using their official authentication methods (OAuth2).
-              Access is limited to the permissions granted, and you can disconnect at any time. 
-                            
+              We use industry leader Auth0 for authentication. Subscriptions utilize Stripe as our 
+              preferred payment gateway.        
             </p>
             <p>
-              Our system and data are hosted/stored in Microsoft Azure in South Eastern Australia. 
+              SmartQb connects to your systems using their official authentication method (OAuth2).
+              Access is limited to the permissions granted, and you can disconnect at any time.        
+            </p>
+            <p>
+              Our system and data is hosted/stored in Microsoft Azure in South Eastern Australia. 
               Microsoft Azure is very secure, 
               leveraging a defense-in-depth strategy with physical datacenter security, 
               strong encryption (at rest and in transit), network segmentation, 
@@ -159,6 +163,21 @@
 
         <details class="faq">
           <summary>
+            Can I continue to use SmartQb if I cancel my subscription to my connected software system, eg. Xero, Salesforce, etc?
+            <span class="chev">▾</span>
+          </summary>
+          <div class="answer">
+            <p>
+              No. Once you cancel your subscription with your connected software provider we
+              can no longer extract your data. We recommend prior to unsubscribing, ask SmartQb
+              to extract data that will be important to you. For example, "List all Invoices for the past 12 months".
+              SmartQb will email you a CSV of all invoices that you can retain. 
+            </p>
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary>
             Is my data being used or shared with any 3rd party including AI?
             <span class="chev">▾</span>
           </summary>
@@ -176,7 +195,7 @@
           </summary>
           <div class="answer">
             <p>
-              No. We use AI to build the query Approach. Once you're happy with the approach and save the Query, AI is again used
+              No. We use AI to build the query plan. Once you're happy with the plan and save the Query, AI is again used
               to build runtime code to run against your data. It NEVER looks at your data, nor should it.
             </p>
           </div>
@@ -202,7 +221,7 @@
           </summary>
           <div class="answer">
             <p>
-              This can depend on the size of your business data within the connected system. We initially extract 2 years past worth 
+              This can depend on the size of your business data within the connected system. We initially extract the last 2 years  
               of data from your system, this is usually adequate for queries you want to run today. If for example, you have half a million 
               invoices, our system might take a few minutes to fetch these, then the query is executed against the data and the email sent. This
               may take up to 5-10 minutes.
@@ -221,7 +240,7 @@
           <div class="answer">
             <p>
               The trial is intended to let you connect a system, ask real questions, and set up scheduled reports to see the value quickly.
-              You can refine the questions and report templates as you go.
+              You can refine the questions and report templates as you go, there's no limitation on the trial version!
             </p>
           </div>
         </details>
