@@ -70,12 +70,11 @@
       letter-spacing: 0.4px;
     }
 
-    .logo-img{
-        height: 44px;          /* ideal SaaS header size */
-        width: auto;
-        display: block;
-    }
-
+      .logo-img{
+          height: 60px;          /* makes it wider (keeps aspect ratio) */
+          width: auto;
+          display: block;
+      }
 
     .navlinks {
       display: flex;
